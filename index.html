@@ -10,7 +10,6 @@
       integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
       crossorigin=""
     />
-    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/Lirikklimov/ISS_Location/main/input-onlinepngtools.png">
     <script
       src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
       integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
@@ -21,21 +20,18 @@
             font-family: sans-serif;
         }
         #issMap {
-        height: 1420px;
+        height: 1000px;
         }
-      .coords {
-/*         font-weight: bold; */
-        font-family: sans-serif;
     </style>
 
     <title>Where is the ISS at?</title>
   </head>
   <body>
-    <h1 id="mapHead">Where is the ISS?</h1>
+    <h1 id="mapHead">Where is the ISS at?</h1>
     <h2 id="mapSubtitle">Fetch the lattitude and longitude from JSON</h2>
-    <p class="coords">
+    <p>
       latitude: <span id="lat"></span>°<br />
-      longitude: <span id="lon"></span>°<br />
+      longitude: <span id="lon"></span>°
     </p>
 
     <div id="issMap"></div>
@@ -50,7 +46,7 @@
       const tiles = L.tileLayer(tileUrl, { attribution });
       tiles.addTo(mymap);
 
-      // Making a marker with a custom icon
+      // ? Making a marker with a custom icon
       const issIcon = L.icon({
         iconUrl: 'iss200.png',
         iconSize: [50, 32],
@@ -74,7 +70,6 @@
         }
         document.getElementById('lat').textContent = latitude.toFixed(2);
         document.getElementById('lon').textContent = longitude.toFixed(2);
-        document.getElementById('alt').textContent = altitude.toFixed(2);
       }
 
       getISS();
