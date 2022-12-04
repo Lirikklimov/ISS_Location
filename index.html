@@ -35,7 +35,8 @@
     <h2 id="mapSubtitle">Fetch the lattitude and longitude from JSON</h2>
     <p class="coords">
       latitude: <span id="lat"></span>°<br />
-      longitude: <span id="lon"></span>°
+      longitude: <span id="lon"></span>°<br />
+      altitude: <span id="alt"></span
     </p>
 
     <div id="issMap"></div>
@@ -65,7 +66,7 @@
       async function getISS() {
         const response = await fetch(api_url);
         const data = await response.json();
-        const { latitude, longitude } = data;
+        const { latitude, longitude, altitude } = data;
 
         marker.setLatLng([latitude, longitude]);
         if (firstTime) {
@@ -74,6 +75,7 @@
         }
         document.getElementById('lat').textContent = latitude.toFixed(2);
         document.getElementById('lon').textContent = longitude.toFixed(2);
+        document.getElementById('alt').textContent = altitude.toFixed(2);
       }
 
       getISS();
